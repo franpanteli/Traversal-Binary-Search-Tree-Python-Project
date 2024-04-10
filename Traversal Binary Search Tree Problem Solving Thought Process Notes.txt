@@ -1,0 +1,238 @@
+-> Making a Binary Search Tree <- BST:
+	-> This is a type of data structure, which sorts data hierarchically 
+	-> We are constructing a BST and performing an in-order traversal in this project 
+	-> There are also other operations which this project goes through -> insertion, search and deletion 
+
+-> Creating a BST:
+	-> This is a data structure where each node has at least two or more branches (children) coming off of it 
+	-> Binary search tree 
+	-> This is for searching and sorting operations 
+	-> The branches on the left side of the node contain values which are less than it 
+	-> The branches on the right side of the node contain values which are more than it 
+	-> This is defined using the TreeNode class 
+	-> __init__ <- To initialise the attributes of the object 
+		-> Arguments to this:
+			-> self <- The instance of the class being created 
+			-> key <- The value to be stored in the node  
+		-> self.key = key <- The key attribute of the TreeNode instance 
+		-> Then initialising the left and right attributes of the node to `None` <- when a node is first created, it doesn't have any left or right children  
+
+-> Then we create the `BinarySearchTree` class: 
+	-> This represents a binary search tree 
+	-> Then again using an __init__ method, with a `self` parameter 
+	-> We then define instance attributes for this
+		-> `root` <- The root node of the binary search tree 
+			-> This is the constructor when a new `BinarySearchTree` object is created 
+		-> self.root = None <- We start with an empty tree, so we set the root attribute to None
+
+-> Then defining a mechanism to insert nodes into the tree:
+	-> We define an empty insert method in the `BinarySearchTree` class for this and give it a `self` parameter 
+	-> We then define an `insert` method <- this will be called by the user, in addition to the `self` parameter
+
+	-> This also needs a `key` parameter: 
+		-> We are inserting values into the binary tree
+		-> This is the key value we want to insert into the tree 
+
+	-> Performing the insertion:
+		-> We are then defining another method (_insert()), that performs the insertion 
+		-> This is done with `self._insert(self.root, key)`
+		-> self.root = self._insert(self.root, key) <- This passes the root node of the tree as the first argument 
+			-> This is the starting point for the insertion process key  
+		-> We are defining a helper function to do the insertion 
+		-> This is a recursive method <- it calls itself to traverse the tree until we have a valid location for the new node
+		-> This is a function (method) to add an element into the tree 
+		-> The root node of the tree is passed as the first argument to this (node, self and key)
+
+	-> Then we check if the node parameter is None:
+		-> If this parameter is `None`, then the method has reached a leaf node or an empty place in the tree, where the new node should be inserted
+		-> We are writing an if statement, which checks if node is None
+		-> And then returning TreeNode(key), to create a new TreeNode instance with the provided key
+		-> This becomes the new lead node, to insert the key into the tree 
+		-> This is a code / mathematical representation of a tree 
+
+	-> Then inserting values into the tree:
+		-> We are traversing the tree and inserting values into it, using the rules for binary trees:
+			-> Values smaller than the key are placed in the left subtree
+			-> Values greater than the key are placed in the right subtree
+			-> We have a node, and we want to put items into the tree <- this method is placing them into the tree, depending on its rules 
+			-> To code these rules, we need to use < / > and if blocks 
+			-> Placing in the element in the left or right subtree, depending on which element this is 
+			-> This gives us a boolean, and depending on its value the new number is placed into the left or right side of the tree    
+		-> Then after the values have been added to the tree, we have to call the new one 
+		-> This is part of a recursive call stack  
+
+-> Then working on the search functionality of the program:
+	-> We are defining a method for this (`search`), inside the `BinarySearchTree` class 
+	-> The two arguments of this are `self` and `key`
+	-> Then deleting `pass` inside this method and calling the private helped method `_search` with the arguments:
+		-> self.root <- This is the root of the binary search tree 
+			-> This search starts from the root 
+		-> key <- This is the value the user wants to find in the binary search tree, when we search it 
+		-> This delegates the search logic to the private `_search` method that performs the recursive search in the binary tree
+	-> We then make the `search` method return the result of this 
+
+-> Then defining a base case for the recursive search:
+	-> We write an if statement to check:
+		-> If node is `None` <- The search has reached the end of the branch without finding a key 
+		-> If node.key == key <- Then the key has been found in the current node 
+		-> We are combining these two conditions into one `or` operator for an if block 
+
+	-> Then another if statement to check if the target key is less than the current node: 
+		-> We return the result of calling the `_search` method with the left child of the current node and the `key` as arguments   
+		-> We are comparing the value of the target key to the current node key 
+		-> Depending on which is greater, the search carries on for the right or left subtree   
+
+-> Then working on the deletion of nodes:
+	-> In the `BinarySearchTree` class, we are defining a `delete` method 
+	-> The arguments this takes are `self` and `key`
+	-> The latter is the key of the value which we want to delete from the binary search tree  
+	-> The deletion operation can result in a new root -> if the node to be deleted is the current root, so we define another method for this case 
+	-> Then inside this class, we define a new helper method called `_delete` that takes `self`, `node`, and `key`
+	-> Checking if the current node is `none` <- This implies that the key to be deleted was not found 
+	-> Then checking if the target key is less than the current node key 
+	-> Then checking if key > node.key 
+	-> The conditionals are valid for nodes with zero or one child, but then we need to extend this to be valid for nodes with two or more 
+	-> To do this we need to check if a left / right child exists 
+	-> Then checking if the left child of the current node is `none` -> if it is, then the node has no left child in the tree 
+		-> Then we return the right child of the block as its replacement 
+		-> We repeat this process, but for the right child of the current node -> in which case the left child of the node is returned as its replacement 
+		-> If none of these conditions is met, then it means that the node has right and left children <- rather than just one or the other 
+		-> We want to find the minimum value which is coming off of a node on the tree 
+		-> In this case this is on the right of the node <- the algorithm we are using places the elements which are smaller than the one on the node to the right of it, and the ones whose values are larger than it to its left 
+		-> So we look to the far right of the node for the minimum value which is coming off of it -> this is its successor 
+		-> We add a `_min_value` all after the elif block for this <- this will be a helper method 
+		-> 
+
+"... do not listen to the rejection. I promise if you work hard and you never give up, you can achieve anything.... carve out a space for yourself." Gaga.  
+
+"MONEY DOESN'T MATTER. HAPPINESS MATTERS MORE."
+
+Why I voluntarily disinherited my children and give it LGBT homelessness youth. 
+
+How they did nothing and they knew it was happening, the cousins on the farm. 
+
+Screaming at me to work with children in Africa. She wanted me on the streets. They were the pair, it was because I'm gay.
+
+How she got rid of the apology note on the door before HSM2 came back to the house
+
+"... The whole world's against you." DMG said, and then months later was screaming at me to die while I was homeless. 
+
+Because I had to move back in there, I remember the group therapy. It doesn't do anything to fix the problems. PCR, effort, approach. Selby and trying to escape the abuser. "... are you happy?" When finished Python course, she blocked access to kitchen two days later that recording.
+
+She became addicted to it, to see how much of it she could destroy. The favouritism  of the straight sisters and painting of them as victims.
+
+Why can't you just stop abusing them?
+
+"... You made it conditional" screaming at me to clean the floor 
+
+I'm going to take your housing, degree, family. It's because I'm gay.
+
+Preventing homelessness. 
+
+Why don't people just stop abusing their kids? That's the solution?
+
+He's screaming at me that I'm going to loose my entire family and die alone. She's lording homelessness over me. He's working at a teacher with my teachers.
+
+The GP's face when I told her I was being screamed at to die and in desperate need of help. "... this situation is not worth your life."
+
+Nobody actually took care of your interests and punished you when you tried to meet them.
+
+WAC2 telling me not to get a flat. "... where will you go?" She was actually lording homelessness over my head, while I was - and then sat there and watched as she tried to assault me. She said - she also knew someone who was queer. Idiot. 
+
+Money on the housing was the issue, and most parents helped with that when their kids went to uni.
+
+"... You need to be harder on Francesca." I think the idea was that because I was still fighting back, that they had a right to do what they did. And what was the end aim of that? He saw himself as more capable than me.
+
+The enemy is not straight white men, the enemy is poverty.
+
+Living with domestic violence. Because if you want help then society will help you instead of them benefitting from your work.
+
+How she had no regard that I had to grow up inn her hoarded junk. "... whoever you think I am, I'm not it."
+
+Dr Fran Panteli - Investment Banker at HSBC
+
+Remembering what it felt like to be a homeless gay youth.
+
+We need to do more for LGBT homeless youth. 
+
+The journal entries from when I was a homeless gay youth. 
+
+What it feels like to be homeless because you are a gay youth.
+
+What the LGBT community taught me about family 
+
+Someone basically saying "... your life belonged to me."
+
+"... I want to be a world class technologist, who happened to be a lesbian."
+
+-> don't you think disposing of a lesbian and taking her entire family away is a bit harsh / an abuse of power?
+-> "... read her her rights" - she was something to dispose of, a problem to be dealt with 
+-> why are you not talking to WAC about this? 
+-> the disposal of their gay daughter, and the experience of it 
+-> the things straight families to do adopted kids
+-> how far do you have to abuse your child for them to be adopted out?
+-> Psychological abuse is child abuse 
+-> The role of male violence in adoption cases.
+-> Living vicariously through your kids is child abuse.
+-> Lessons I have learnt about bigotry 
+	1. How you fight sexism is by going after status 
+	2. It's about how people actually treat you
+
+
+Dr Fran Panteli - Director of Software Engineering 
+
+
+16:26pm. Growth zone working thoughts. 
+-> "... read her her rights" she wanted me homeless and he wanted me disposed of, I was teaching myself code 
+-> "... if the people at work" - she'd abused me out of access to a kitchen, so I was forced to put rubbish in the bedroom - persecution 
+	-> I would rather that than go along with their cult 
+-> He wouldn't even listen to my plans by that point, I was sub-human
+-> Timing how long you've been there on the calendar "... I marked it off on the calendar" 
+-> "... how long?" They were desperate to dispose of me and drop the floor from under me, my existence was the problem
+-> She got a holiday and I was expected to look after the cats
+-> Still better than the alternative 
+-> How coming out can put your safety at risk <- PCR, effort, approach
+-> Stop reducing LGBT young people to victims and homeless people 
+-> They were willing to depress you - loosing your entire family, he was willing to do that to you
+-> Lentils and room break in when investment bank interview
+-> Screaming session after success on the code 
+-> He's never coming to my graduation
+-> Pressuring me to get a job and I was just abused out of a degree - he was telling me - telling me - I would never go back and was incapable of it 
+-> He got a sense of gratification over a lesbian loosing her entire family, and was using the women in Physics posters
+-> There was a cost of living crisis and they just wanted to eject me into life with no degree - he was trying to take credit for what I did as it was and 'graduate with' me
+-> He just wanted to get rid of me "... what's the one you've done?" He said "... doing another one?" He didn't actually know what I was doing or what my plans were, wouldn't believe me and wouldn't care - and just sat there an enabled the abuse as it happened 
+-> Concerned about safety 
+-> I would rather be homeless and have nothing and be free than be there  
+-> Y3 mach 2 remember shaking 
+-> She didn't want my independence <- she was threatened by it 
+	-> Threats of violence at suggestion of no contact 
+
+-> PCR, effort, approach. That's dignity. The PCR just became so huge I didn't know how to end it. It was my 'mother' abusing me because I was gay. Threatening me with homelessness again. Threatening to take my entire family away. As if it were something being done to me because it happened to DMG, and not something which I had no choice but to do and had withdrawn from the degree with the aim of becoming financially independent and carrying it on elsewhere to do?
+-> How when their mind control was out of my head, I realised this morning I had the capacity to put effort in at the right approach - which was making another repository to get out of there, that dx 
+-> But how when I was trapped there doing a degree during the pandemic and she was abusing me I didn't know how to get it to end, the PCR 
+-> I realised this morning I didn't have to be anybody, or be exceptional in order to get the abuse to end
+-> I could exist as an autonomous person, PCR, approach, effort 
+-> I realised that's the independence she was so threatened by and wanted to control, and the control - that was the PCR
+-> I wasn't allowed to PCR, effort, approach as a lesbian without being abused for it 
+-> Those were the thoughts running through my head when I was in the growth zone - from stages 1-10 of the growth zone
+-> I always had to be exceptional in order to be loved, and it never worked, sometimes it did 
+-> Things never worked 
+-> I didn't entertain the idea that I could solve my own problems with PCR, effort, approach - because I tried really, really hard - to make them love me. Nothing worked. I was trying hard at the wrong approach, for 23 years of my life. These were the wrong people.
+-> That the moment you use a different approach, everything can change
+-> Jay Reid 
+	1. Gaining distance 
+	2. Making sense
+	3. Living in defiance of their rules  
+
+How being gay radically changed my career plans. <- An ICL imaginary blog article
+Why I don't care about having biological kids.
+Why having biological children was never something I cared about.
+	1. I didn't want to worry about a 'biological clock', or have people treating me like some race horse they betted on to land a rich husband 
+I wanted kids, I just didn't care about biology. 
+Sexism faced by gay women who choose not to have biological kids.
+How you fight sexism is by going after high status.
+Asking people if they have children is a social faux pas.
+I believe that human freedom and autonomy is the highest good.
+I believe that individual freedom is the highest good.
+
+At the same time, I saw single women who'd wanted families and never had them. Single women who did unpaid labour and had agreeable personalities. This would have been my idea of a living hell.
