@@ -8,7 +8,7 @@
 	-> Binary search tree 
 	-> This is for searching and sorting operations 
 	-> The branches on the left side of the node contain values which are less than it 
-	-> The branches on the right side of the node contain values which are more than it 
+	-> The branches on the right side of the node contain values which are greater than it 
 	-> This is defined using the TreeNode class 
 	-> __init__ <- To initialise the attributes of the object 
 		-> Arguments to this:
