@@ -99,140 +99,54 @@
 		-> If none of these conditions is met, then it means that the node has right and left children <- rather than just one or the other 
 		-> We want to find the minimum value which is coming off of a node on the tree 
 		-> In this case this is on the right of the node <- the algorithm we are using places the elements which are smaller than the one on the node to the right of it, and the ones whose values are larger than it to its left 
-		-> So we look to the far right of the node for the minimum value which is coming off of it -> this is its successor 
-		-> We add a `_min_value` all after the elif block for this <- this will be a helper method 
-		-> 
+		-> So we look to the far right of the node for the minimum value which is coming off of it <- this is its 'successor'
+		-> We add a `_min_value` after the elif block for this <- this will be a helper method 
+		-> Once we've found this minimum value, we want to recursively delete the node with it from the right subtree 
+		-> This makes sure that the node with the minimum value from the tree is maintained, without compromising the binary property of the search tree
+		-> So we find the minimum value to the right of the node in the tree, and then carry on deleting it 
+	-> After changes have been made to the current node, we then want to return the updated tree with them
 
-"... do not listen to the rejection. I promise if you work hard and you never give up, you can achieve anything.... carve out a space for yourself." Gaga.  
+	-> Replacing nodes:
+		-> We have a node and two branches coming off of it 
+		-> All three of them have values, and the value of the branch on the right of the parent node is the one with the minimum value 
+		-> We delete both branches coming off of the parent node and replace the value of that node with the minimum value of the node which we just deleted
+		-> So we need to define a method to extract the minimum value of the branch, to the right of the parent node for this 
+		-> This is the `_min_value` method
+		-> The arguments of this are the `self` and `node` parameters
+		-> To find the smallest value of the right subtree, we iterate through the left children of the node until we find the leftmost one 
+		-> We write a while loop that runs when node.left is not None to do this 
+			-> This checks if there's a left child 
+			-> If we have iterated through all of the left elements of the node and the boolean has a certain value, then we will know we have reached its leftmost node 
+			-> The loop exits once we have this left most elements of the node, and we return its key 
 
-"MONEY DOESN'T MATTER. HAPPINESS MATTERS MORE."
+-> Implementing the in-order traversal algorithm:
+	-> This is the method which will perform an in-order traversal of the binary search tree 
+	-> This returns the keys of the nodes on the tree in sorted order 
+	-> This is a depth-first binary tree traversal algorithm that first visits the left subtree, the current node, and then the right subtree
+	-> We are storing the keys of these nodes in sorted order 
+	-> And then sorting and returning them 
+	-> We define the `_inorder_traversal` method for this 
+		-> The arguments of this are self, node and result 
+		-> `node` is the current node being considered during the traversal 
+		-> `result` is the list to which the keys are appended in sorted order    
+	-> Then checking if the current node is not empty and recursively calling the `_inorder_traversal` method 
+	-> We then append the key of the current node to the `result` list 
+	-> Then we recursively call the `_inorder_traversal` method on the right child of the current node 
+		-> This recursively explores the right subtree in an in-order manner 
+	-> We create an instance of the `BinarySearchTree` class and assign it to the `bst` variable 
+	-> Then we create a list of nodes with different integer values, below the `BinarySearchTree` instance
+	-> Then iterating through the `nodes` list inside the `for` loop body - to insert the values into the binary search tree 
+	-> We are printing the results of these methods as we do this, to implement the search functionality  
+	-> This is the result of this:
 
-Why I voluntarily disinherited my children and give it LGBT homelessness youth. 
+<__main__.TreeNode object at 0x7fecd9cc66b0>
 
-How they did nothing and they knew it was happening, the cousins on the farm. 
-
-Screaming at me to work with children in Africa. She wanted me on the streets. They were the pair, it was because I'm gay.
-
-How she got rid of the apology note on the door before HSM2 came back to the house
-
-"... The whole world's against you." DMG said, and then months later was screaming at me to die while I was homeless. 
-
-Because I had to move back in there, I remember the group therapy. It doesn't do anything to fix the problems. PCR, effort, approach. Selby and trying to escape the abuser. "... are you happy?" When finished Python course, she blocked access to kitchen two days later that recording.
-
-She became addicted to it, to see how much of it she could destroy. The favouritism  of the straight sisters and painting of them as victims.
-
-Why can't you just stop abusing them?
-
-"... You made it conditional" screaming at me to clean the floor 
-
-I'm going to take your housing, degree, family. It's because I'm gay.
-
-Preventing homelessness. 
-
-Why don't people just stop abusing their kids? That's the solution?
-
-He's screaming at me that I'm going to loose my entire family and die alone. She's lording homelessness over me. He's working at a teacher with my teachers.
-
-The GP's face when I told her I was being screamed at to die and in desperate need of help. "... this situation is not worth your life."
-
-Nobody actually took care of your interests and punished you when you tried to meet them.
-
-WAC2 telling me not to get a flat. "... where will you go?" She was actually lording homelessness over my head, while I was - and then sat there and watched as she tried to assault me. She said - she also knew someone who was queer. Idiot. 
-
-Money on the housing was the issue, and most parents helped with that when their kids went to uni.
-
-"... You need to be harder on Francesca." I think the idea was that because I was still fighting back, that they had a right to do what they did. And what was the end aim of that? He saw himself as more capable than me.
-
-The enemy is not straight white men, the enemy is poverty.
-
-Living with domestic violence. Because if you want help then society will help you instead of them benefitting from your work.
-
-How she had no regard that I had to grow up inn her hoarded junk. "... whoever you think I am, I'm not it."
-
-Dr Fran Panteli - Investment Banker at HSBC
-
-Remembering what it felt like to be a homeless gay youth.
-
-We need to do more for LGBT homeless youth. 
-
-The journal entries from when I was a homeless gay youth. 
-
-What it feels like to be homeless because you are a gay youth.
-
-What the LGBT community taught me about family 
-
-Someone basically saying "... your life belonged to me."
-
-"... I want to be a world class technologist, who happened to be a lesbian."
-
--> don't you think disposing of a lesbian and taking her entire family away is a bit harsh / an abuse of power?
--> "... read her her rights" - she was something to dispose of, a problem to be dealt with 
--> why are you not talking to WAC about this? 
--> the disposal of their gay daughter, and the experience of it 
--> the things straight families to do adopted kids
--> how far do you have to abuse your child for them to be adopted out?
--> Psychological abuse is child abuse 
--> The role of male violence in adoption cases.
--> Living vicariously through your kids is child abuse.
--> Lessons I have learnt about bigotry 
-	1. How you fight sexism is by going after status 
-	2. It's about how people actually treat you
-
-
-Dr Fran Panteli - Director of Software Engineering 
-
-
-16:26pm. Growth zone working thoughts. 
--> "... read her her rights" she wanted me homeless and he wanted me disposed of, I was teaching myself code 
--> "... if the people at work" - she'd abused me out of access to a kitchen, so I was forced to put rubbish in the bedroom - persecution 
-	-> I would rather that than go along with their cult 
--> He wouldn't even listen to my plans by that point, I was sub-human
--> Timing how long you've been there on the calendar "... I marked it off on the calendar" 
--> "... how long?" They were desperate to dispose of me and drop the floor from under me, my existence was the problem
--> She got a holiday and I was expected to look after the cats
--> Still better than the alternative 
--> How coming out can put your safety at risk <- PCR, effort, approach
--> Stop reducing LGBT young people to victims and homeless people 
--> They were willing to depress you - loosing your entire family, he was willing to do that to you
--> Lentils and room break in when investment bank interview
--> Screaming session after success on the code 
--> He's never coming to my graduation
--> Pressuring me to get a job and I was just abused out of a degree - he was telling me - telling me - I would never go back and was incapable of it 
--> He got a sense of gratification over a lesbian loosing her entire family, and was using the women in Physics posters
--> There was a cost of living crisis and they just wanted to eject me into life with no degree - he was trying to take credit for what I did as it was and 'graduate with' me
--> He just wanted to get rid of me "... what's the one you've done?" He said "... doing another one?" He didn't actually know what I was doing or what my plans were, wouldn't believe me and wouldn't care - and just sat there an enabled the abuse as it happened 
--> Concerned about safety 
--> I would rather be homeless and have nothing and be free than be there  
--> Y3 mach 2 remember shaking 
--> She didn't want my independence <- she was threatened by it 
-	-> Threats of violence at suggestion of no contact 
-
--> PCR, effort, approach. That's dignity. The PCR just became so huge I didn't know how to end it. It was my 'mother' abusing me because I was gay. Threatening me with homelessness again. Threatening to take my entire family away. As if it were something being done to me because it happened to DMG, and not something which I had no choice but to do and had withdrawn from the degree with the aim of becoming financially independent and carrying it on elsewhere to do?
--> How when their mind control was out of my head, I realised this morning I had the capacity to put effort in at the right approach - which was making another repository to get out of there, that dx 
--> But how when I was trapped there doing a degree during the pandemic and she was abusing me I didn't know how to get it to end, the PCR 
--> I realised this morning I didn't have to be anybody, or be exceptional in order to get the abuse to end
--> I could exist as an autonomous person, PCR, approach, effort 
--> I realised that's the independence she was so threatened by and wanted to control, and the control - that was the PCR
--> I wasn't allowed to PCR, effort, approach as a lesbian without being abused for it 
--> Those were the thoughts running through my head when I was in the growth zone - from stages 1-10 of the growth zone
--> I always had to be exceptional in order to be loved, and it never worked, sometimes it did 
--> Things never worked 
--> I didn't entertain the idea that I could solve my own problems with PCR, effort, approach - because I tried really, really hard - to make them love me. Nothing worked. I was trying hard at the wrong approach, for 23 years of my life. These were the wrong people.
--> That the moment you use a different approach, everything can change
--> Jay Reid 
-	1. Gaining distance 
-	2. Making sense
-	3. Living in defiance of their rules  
-
-How being gay radically changed my career plans. <- An ICL imaginary blog article
-Why I don't care about having biological kids.
-Why having biological children was never something I cared about.
-	1. I didn't want to worry about a 'biological clock', or have people treating me like some race horse they betted on to land a rich husband 
-I wanted kids, I just didn't care about biology. 
-Sexism faced by gay women who choose not to have biological kids.
-How you fight sexism is by going after high status.
-Asking people if they have children is a social faux pas.
-I believe that human freedom and autonomy is the highest good.
-I believe that individual freedom is the highest good.
-
-At the same time, I saw single women who'd wanted families and never had them. Single women who did unpaid labour and had agreeable personalities. This would have been my idea of a living hell.
+		-> This is an object which we have created 
+		-> This is default string representation when printing an instance of a class 
+		-> We want to change this print to a useful value, by defining a method named `__str__` in the `TreeNode` class
+			-> This is to take the `self` argument 
+	-> We then return the results of the str() function, with self.key as its argument 
+		-> This is the attribute of the current node object that stores the value associated with the node 
+		-> After a change is made, we then print / return the result of this to see if it has worked 
+		-> In this case one of the changes we are making is deleting and printing 40 from the tree, calling this with different arguments  
+			-> Then searching for this in the tree, to make sure that it has been deleted 
